@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+}
+
+def libs = project.extensions.getByType(VersionCatalogsExtension).named("libs")
+
+configurations {
+    mockitoAgent {
+        transitive = false
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    mockitoAgent libs.findLibrary("mockito-core").get()
+
+    implementation libs.findLibrary("slf4j-api").get()
+
+    testImplementation platform(libs.findLibrary("junit-bom").get())
+    testImplementation libs.findLibrary("junit-jupiter").get()
+    testRuntimeOnly libs.findLibrary("junit-platform-launcher").get()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['-parameters']
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    jvmArgs "-javaagent:${configurations.mockitoAgent.asPath}", "-Xshare:off"
+}

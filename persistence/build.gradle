@@ -1,0 +1,19 @@
+plugins {
+    id 'spring-boot-common-conventions'
+    alias(libs.plugins.lombok)
+}
+
+dependencies {
+    implementation project(":shared")
+    implementation libs.liquibase.core
+    implementation libs.postgresql
+    implementation libs.spring.boot.starter.data.jpa
+    implementation libs.spring.data.envers
+    implementation(variantOf(libs.querydsl.jpa) {classifier("jakarta") })
+
+    annotationProcessor(variantOf(libs.querydsl.apt) {classifier("jakarta") })
+    annotationProcessor libs.jakarta.annotation.api
+    annotationProcessor libs.jakarta.persistence.api
+
+    testImplementation libs.testcontainers.postgresql
+}

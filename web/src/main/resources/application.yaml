@@ -1,0 +1,43 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.jdbc.core: TRACE
+
+spring:
+  mvc:
+    format:
+      date: iso
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5433/postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties.hibernate:
+      batch_size: 50
+      fetch_size: 50
+      show_sql: true
+      format_sql: true
+      hbm2ddl.auto: validate
+    open-in-view: false
+  config:
+    import: optional:secrets.properties[.properties]
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
+            redirectUri: http://localhost:8080/login/oauth2/code/google
+            scope: openid,email,profile
+  messages:
+    basename: messages
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: ${CLIENT_ID}
+      client-secret: ${CLIENT_SECRET}
+      scopes: openid,email,profile
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2/redirect.html

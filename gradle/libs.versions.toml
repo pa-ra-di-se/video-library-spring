@@ -1,0 +1,47 @@
+[versions]
+foojay-resolver = "1.0.0"
+jakarta = "3.0.0"
+jakarta-validation = "3.1.1"
+junit-bom-ver = "5.13.3"
+lombok = "8.13.1"
+mockito = "5.18.0"
+querydsl = "5.1.0"
+slf4j = "2.0.17"
+spring-boot = "3.5.3"
+springdoc = "2.8.8"
+testcontainers = "1.21.1"
+
+[libraries]
+jakarta-annotation-api = { module = "jakarta.annotation:jakarta.annotation-api", version.ref = "jakarta" }
+jakarta-persistence-api = { module = "jakarta.persistence:jakarta.persistence-api", version.ref = "jakarta" }
+jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api", version.ref = "jakarta-validation"}
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit-bom-ver" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+liquibase-core = { module = "org.liquibase:liquibase-core" }
+mockito-core = {module = "org.mockito:mockito-core", version.ref = "mockito" }
+postgresql = { module = "org.postgresql:postgresql" }
+querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" }
+querydsl-jpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-data-envers = { module = "org.springframework.data:spring-data-envers" }
+spring-security-oauth2-client = { module = "org.springframework.security:spring-security-oauth2-client" }
+spring-security-oauth2-jose = { module = "org.springframework.security:spring-security-oauth2-jose" }
+spring-security-test = { module = "org.springframework.security:spring-security-test" }
+springdoc-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+thymeleaf-extras-springsecurity6 = { module = "org.thymeleaf.extras:thymeleaf-extras-springsecurity6" }
+
+[plugins]
+foojay-resolver-convention = { id = "org.gradle.toolchains.foojay-resolver-convention", version.ref = "foojay-resolver" }
+lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }

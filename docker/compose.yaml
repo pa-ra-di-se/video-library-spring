@@ -1,0 +1,21 @@
+name: video-library
+
+services:
+  db:
+    image: postgres:17.5
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=postgres
+    networks:
+      - net
+    volumes:
+      - vol:/var/lib/postgresql/data
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  vol:

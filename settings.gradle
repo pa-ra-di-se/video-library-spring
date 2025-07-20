@@ -1,0 +1,7 @@
+rootProject.name = 'video-library-spring'
+
+include 'api'
+include 'core'
+include 'persistence'
+include 'web'
+include 'shared'
