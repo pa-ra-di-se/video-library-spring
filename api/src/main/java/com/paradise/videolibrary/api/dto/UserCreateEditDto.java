@@ -4,10 +4,12 @@ import com.paradise.videolibrary.api.validation.group.CreateAction;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Value;
 import lombok.experimental.FieldNameConstants;
 
 @Value
+@Builder
 @FieldNameConstants
 public class UserCreateEditDto {
 

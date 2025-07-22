@@ -33,6 +33,11 @@ public class UserService implements UserDetailsService {
                 .orElseThrow();
     }
 
+    public boolean findByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .isPresent();
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username)
